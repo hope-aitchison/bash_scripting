@@ -11,7 +11,7 @@ local_branches=$(git branch | sed 's/\*/ /')
 for branch in $local_branches; do
 
     # checks if branch NOT present in remote with !
-    if ! git branch -r | grep "\sorigin/main$"; then
+    if ! git branch -r | grep "\s$branch/main$"; then
     git branch -d $branch
     echo "$branch did not exist in remote repo and has been deleted"
 
